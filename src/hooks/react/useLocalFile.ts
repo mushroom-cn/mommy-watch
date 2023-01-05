@@ -1,7 +1,7 @@
 import * as JSON5 from 'json5';
 import { useCallback, useEffect, useMemo, useRef } from 'react';
 import { ConfigBuilder } from '../../builder';
-import { readFile, writeFile } from '../../utils';
+import { readFileAsStringAsync, writeStringToFileAsync } from '../../utils';
 import useObservable from './useObservable';
 
 export type UseLocalFileProps = {
@@ -21,7 +21,9 @@ export function useLocalFile<T extends object>({
   const conf = useObservable(builder.getConfAsObservable(), {});
 
   const readFileContentFromLocal = useCallback(async () => {
-    const content = await readFile(file, { createNewFileIfNotFound: true });
+    const content = await readFileAsStringAsync(file, {
+      createNewFileIfNotFound: true,
+    });
     const setting = JSON5.parse(content);
     builder.setInit(setting);
     isDirtyRef.current = false;
@@ -36,7 +38,7 @@ export function useLocalFile<T extends object>({
         return;
       }
       isDirtyRef.current = false;
-      writeFile(file, JSON5.stringify(latestConf, undefined, 2), {
+      writeStringToFileAsync(file, JSON5.stringify(latestConf, undefined, 2), {
         createNewFileIfNotFound: true,
       });
     };

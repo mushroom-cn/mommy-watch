@@ -7,9 +7,8 @@ import {
   writeAsStringAsync,
 } from 'expo-file-system';
 import Toast from 'react-native-root-toast';
-Toast.show(cacheDirectory || ' no', { duration: 3 * 1000 });
 
-async function createIfNotFound(file: string, mimeType: string) {
+async function createIfNotFoundAsync(file: string, mimeType: string) {
   const fileInfo = await getInfoAsync(file);
   if (!fileInfo.exists) {
     const { granted } =
@@ -32,7 +31,7 @@ async function createIfNotFound(file: string, mimeType: string) {
   }
 }
 
-export async function readFile(
+export async function readFileAsStringAsync(
   file: string,
   {
     mimeType = 'application/text',
@@ -40,7 +39,7 @@ export async function readFile(
   }: { mimeType?: string; createNewFileIfNotFound?: boolean } = {}
 ) {
   if (createNewFileIfNotFound) {
-    await createIfNotFound(file, mimeType);
+    await createIfNotFoundAsync(file, mimeType);
   }
   const content = await readAsStringAsync(file, {
     encoding: EncodingType.UTF8,
@@ -48,7 +47,7 @@ export async function readFile(
   return content;
 }
 
-export async function writeFile(
+export async function writeStringToFileAsync(
   file: string,
   content: string,
   {
@@ -57,7 +56,7 @@ export async function writeFile(
   }: { mimeType?: string; createNewFileIfNotFound?: boolean } = {}
 ) {
   if (createNewFileIfNotFound) {
-    await createIfNotFound(file, mimeType);
+    await createIfNotFoundAsync(file, mimeType);
   }
   await writeAsStringAsync(file, content, {
     encoding: EncodingType.UTF8,
