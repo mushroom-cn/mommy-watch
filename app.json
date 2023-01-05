@@ -1,0 +1,46 @@
+{
+  "expo": {
+    "name": "mommy-watch",
+    "slug": "mommy-watch",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anonymous.mommywatch"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "package": "com.anonymous.mommywatch"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "jsEngine": "hermes",
+    "plugins": [
+      // [
+      //   "react-native-vision-camera",
+      //   {
+      //     "cameraPermissionText": "$(PRODUCT_NAME) needs access to your Camera.",
+      //     "enableMicrophonePermission": true,
+      //     "microphonePermissionText": "$(PRODUCT_NAME) needs access to your Microphone."
+      //   }
+      // ]
+    ]
+  }
+}

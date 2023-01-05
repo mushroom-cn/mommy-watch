@@ -1,0 +1,18 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "resolveJsonModule": true,
+    "strict": true,
+    "baseUrl": ".",
+    "jsx": "react-native",
+    "paths": {
+      "@hooks": ["src/hooks"],
+      "@permissions": ["src/permissions"],
+      "@i18n": ["i18n"],
+      "@component": ["src/component"],
+      "@utils": ["src/utils"]
+    }
+  },
+  "include": ["src", "*.js", "type", "i18n"],
+  "exclude": ["dist"]
+}
