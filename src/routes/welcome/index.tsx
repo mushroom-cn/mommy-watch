@@ -10,7 +10,7 @@ export function Welcome() {
     <SafeAreaView>
       <View style={style.container}>
         <Text style={style.welcomeText} h1>
-          {t('welcomeToMummyWatch')}
+          {t('welcomeTo!description')}
         </Text>
       </View>
     </SafeAreaView>

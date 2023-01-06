@@ -5,17 +5,17 @@ import { Welcome } from './welcome';
 export const routes = {
   home: {
     id: 'home',
-    name: 'homeTabTitle',
+    name: 'homeTab!title',
     component: Home,
   },
   welcome: {
     id: 'welcome',
-    name: 'welcomeTabTitle',
+    name: 'welcomeTab!title',
     component: Welcome,
   },
   settings: {
     id: 'settings',
-    name: 'settingTabTitle',
+    name: 'settingTab!title',
     component: Settings,
   },
 };

@@ -12,6 +12,7 @@
     "scan": "babel -f .babel.config.js 'src/**/*.{js,jsx,ts,tsx}'"
   },
   "dependencies": {
+    "@expo/html-elements": "^0.2.2",
     "@klarna/react-native-vector-drawable": "^0.1.2",
     "@react-native-firebase/app": "^16.5.0",
     "@react-navigation/bottom-tabs": "^6.5.2",

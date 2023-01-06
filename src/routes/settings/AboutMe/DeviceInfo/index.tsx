@@ -1,16 +1,19 @@
 import { Card } from '@rneui/base';
-import { ListItem } from '@rneui/themed';
+import { ListItem, Text } from '@rneui/themed';
 import * as Device from 'expo-device';
 import { useAsync, useTranslation } from '../../../../hooks';
 
-import { FlatList, StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { FlatList, ListRenderItemInfo, StyleSheet } from 'react-native';
 import { Icon } from '../../../../component';
-const renderItem = ({ key, title, value }: any) => {
+const renderItem = ({
+  item: { key, title, value },
+}: ListRenderItemInfo<any>) => {
   return (
-    <ListItem key={key}>
-      <ListItem.Title>{title}</ListItem.Title>
-      <ListItem.Content>{value}</ListItem.Content>
+    <ListItem key={key} bottomDivider>
+      <ListItem.Content>
+        <ListItem.Title>{title}</ListItem.Title>
+        <Text>{value}</Text>
+      </ListItem.Content>
     </ListItem>
   );
 };
@@ -52,7 +55,12 @@ export default function DeviceInfo() {
       {loading ? (
         <Icon name="refresh-outline" />
       ) : (
-        <FlatList style={styles.list} data={value} renderItem={renderItem} />
+        <FlatList
+          scrollEnabled={true}
+          style={styles.list}
+          data={value}
+          renderItem={renderItem}
+        />
       )}
     </Card>
   );

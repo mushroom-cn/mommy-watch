@@ -5,11 +5,11 @@ import { ChangeLanguageDetails } from './Languge';
 
 export const routes = {
   changeLanguageDetail: {
-    name: 'changeLanguageDetail2',
+    name: 'changeLanguageDetail',
     component: ChangeLanguageDetails,
   },
   configDetail: {
-    name: 'configDetail',
+    name: 'config!detail',
     component: ConfigFilePath,
   },
   aboutMe: {

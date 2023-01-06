@@ -38,6 +38,20 @@ jobs:
       
       - name: Run test
         run: npm test
+      
+      - name: Collect Coverage
+        uses: ArtiomTr/jest-coverage-report-action@v2
+    # give the id for the step, to access outputs in another step.
+        id: coverage
+        with:
+        # tell to the action to not attach comment.
+          output: report-markdown
+          
+      - name: report
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+        # pass output from the previous step by id.
+          message: ${{ steps.coverage.outputs.report }}
 
       - name: Publish update
         run: eas update --auto

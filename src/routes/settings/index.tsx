@@ -1,8 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import { Card } from '@rneui/themed';
-import { cacheDirectory } from 'expo-file-system';
 import { useMemo } from 'react';
-import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { FlatList, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from '../../hooks';
 import { routes } from './routes';
@@ -18,9 +17,9 @@ export function Settings() {
     () => [
       {
         id: 'language',
-        name: t('setLanguage'),
+        name: t('language'),
         icon: 'language',
-        title: t('setLanguage'),
+        title: t('language'),
         onPress: () => {
           navigation.navigate(routes.changeLanguageDetail.name);
         },
@@ -38,7 +37,7 @@ export function Settings() {
         id: 'aboutMe',
         name: t('aboutMe'),
         icon: 'information-circle-outline',
-        title: t('aboutMe'),
+        title: t('aboutMe!title'),
         onPress: () => {
           navigation.navigate(routes.aboutMe.name);
         },
@@ -56,7 +55,6 @@ export function Settings() {
             renderItem={renderItem}
           />
         </Card>
-        <Text>{cacheDirectory}</Text>
       </View>
     </SafeAreaView>
   );

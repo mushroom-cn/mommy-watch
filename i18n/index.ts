@@ -8,7 +8,7 @@ import en from './en/translation.json';
 // have a look at the Quick start guide
 // for passing in lng and translations on init
 const option: InitOptions = {
-  compatibilityJSON: 'v4',
+  compatibilityJSON: 'v3',
   fallbackLng: 'zh',
   debug: true,
   resources: {

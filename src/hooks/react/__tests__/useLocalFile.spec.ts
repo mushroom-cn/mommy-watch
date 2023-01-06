@@ -9,7 +9,6 @@ describe('useLocalFile test', () => {
     const mockConf = { conf: '123' };
     const mockReadFileAsStringAsync = jest.fn(() => json5.stringify(mockConf));
     const mockWriteStringToFileAsync = jest.fn();
-
     (readFileAsStringAsync as jest.MockedFn<any>).mockImplementation(
       mockReadFileAsStringAsync
     );
